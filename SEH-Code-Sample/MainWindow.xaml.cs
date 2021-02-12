@@ -24,5 +24,20 @@ namespace SEH_Code_Sample
         {
             InitializeComponent();
         }
+
+        private void titleTextArea_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
+        }
+
+        private void bodyTextArea_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
+        }
+
+        private void boldButton_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

@@ -5,8 +5,16 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SEH_Code_Sample"
         mc:Ignorable="d"
-        Title="MainWindow" Height="350" Width="525">
+        Title="SEH-Code-Sample" Height="400" Width="600"
+            ResizeMode="NoResize" SizeToContent="WidthAndHeight"
+            Topmost="False" WindowState="Normal">
     <Grid>
-        
+        <RichTextBox x:Name="titleTextArea" HorizontalAlignment="Left" Height="25"  VerticalAlignment="Top" Width="200" Margin="65,15,0,0" TextChanged="titleTextArea_TextChanged"/>
+        <RichTextBox x:Name="bodyTextArea" HorizontalAlignment="Left" Height="125" VerticalAlignment="Top" Width="505" Margin="65,50,0,0" TextChanged="bodyTextArea_TextChanged"/>
+        <Label x:Name="titleLabel" Content="Title:" HorizontalAlignment="Left" Height="25" Width="40" Margin="25,15,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="bodyLabel" Content="Body:" HorizontalAlignment="Left" Height="25" Width="40" Margin="25,50,0,0" VerticalAlignment="Top"/>
+        <Button x:Name="boldButton" Content="Bold" HorizontalAlignment="Left"  Margin="520,16,0,0" VerticalAlignment="Top" Width="50" Height="25" Click="boldButton_Click"/>
+        <Grid HorizontalAlignment="Center" Height="160" Margin="25,190,25,25" VerticalAlignment="Top" Width="550"/>
+
     </Grid>
 </Window>
