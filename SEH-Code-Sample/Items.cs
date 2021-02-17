@@ -11,7 +11,6 @@ namespace SEH_Code_Sample
         public string title { get; set; }
         public string link { get; set; }
         public string snippet { get; set; }
-        public int index { get; set; }
 
         public string thumbnailLink { get; set; }
         public int thumbnailHeight { get; set; }

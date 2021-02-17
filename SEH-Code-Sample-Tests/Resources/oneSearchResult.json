@@ -1,0 +1,55 @@
+﻿{
+    "kind": "customsearch#search",
+    "url": {
+        "type": "application/json",
+        "template": "https://www.googleapis.com/customsearch/v1?q={searchTerms}&num={count?}&start={startIndex?}&lr={language?}&safe={safe?}&cx={cx?}&sort={sort?}&filter={filter?}&gl={gl?}&cr={cr?}&googlehost={googleHost?}&c2coff={disableCnTwTranslation?}&hq={hq?}&hl={hl?}&siteSearch={siteSearch?}&siteSearchFilter={siteSearchFilter?}&exactTerms={exactTerms?}&excludeTerms={excludeTerms?}&linkSite={linkSite?}&orTerms={orTerms?}&relatedSite={relatedSite?}&dateRestrict={dateRestrict?}&lowRange={lowRange?}&highRange={highRange?}&searchType={searchType}&fileType={fileType?}&rights={rights?}&imgSize={imgSize?}&imgType={imgType?}&imgColorType={imgColorType?}&imgDominantColor={imgDominantColor?}&alt=json"
+    },
+    "queries": {
+        "request": [
+            {
+                "title": "Google Custom Search - banana",
+                "totalResults": "1",
+                "searchTerms": "banana",
+                "count": 1,
+                "startIndex": 1,
+                "inputEncoding": "utf8",
+                "outputEncoding": "utf8",
+                "safe": "off",
+                "cx": "bf4611498357bc8c9",
+                "searchType": "image",
+                "imgSize": "medium"
+            }
+        ]
+    },
+    "context": {
+        "title": "Google"
+    },
+    "searchInformation": {
+        "searchTime": 0.559768,
+        "formattedSearchTime": "0.56",
+        "totalResults": "1",
+        "formattedTotalResults": "1"
+    },
+    "items": [
+        {
+            "kind": "customsearch#result",
+            "title": "Banana bread tops the list of most searched for recipes in ...",
+            "htmlTitle": "<b>Banana</b> bread tops the list of most searched for recipes in ...",
+            "link": "https://i.dailymail.co.uk/1s/2020/05/08/16/28165848-0-image-a-51_1588951482497.jpg",
+            "displayLink": "www.google.com",
+            "snippet": "Banana bread tops the list of most searched for recipes in ...",
+            "htmlSnippet": "<b>Banana</b> bread tops the list of most searched for recipes in ...",
+            "mime": "image/jpeg",
+            "fileFormat": "image/jpeg",
+            "image": {
+                "contextLink": "https://www.google.com/appserve/mkt/p/AM7kBiVepbyTqcx8eER9cYoTASYiGDBtNTtW3vwFsvTR2OmhzlD3Yefcb6GckhRW7-dhvBdcxICfm5QplkJG-HmIWIrabalJPy02pnKng9-VawT9YSg40CRsdDobzZgFfwezeAKHJlezCdmv2o4AeMjybGUaIDgzzIZ_pE-_kbCHBH_AO4vG1Qj49cs3_38ccTwJKBdlP54lhzbEgajw67tv",
+                "height": 185,
+                "width": 308,
+                "byteSize": 26093,
+                "thumbnailLink": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSNlrx0wzJ7YfD5cVIIQvOnrEirC-lfVesmhILv4T1D2WyNTHonIHAX&s",
+                "thumbnailHeight": 70,
+                "thumbnailWidth": 117
+            }
+        }
+    ]
+}

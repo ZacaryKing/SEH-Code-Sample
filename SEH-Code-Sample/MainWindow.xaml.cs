@@ -204,8 +204,11 @@ namespace SEH_Code_Sample
 
             List<Items> items = GoogleAPI.SearchGoogleImages(query);
 
-            if ((items == null) || (!items.Any()))
-                return "Something went wrong trying to connect to Google API.";
+            if (items == null)
+                return "Something went wrong while connecting to Google API.";
+            else if (!items.Any())
+                return "No search results returned.";
+
 
             // Traverse through each row
             for (int rowIndex = 0, i = 0; (rowIndex < imageGrid.RowDefinitions.Count) && (i < items.Count); rowIndex++)

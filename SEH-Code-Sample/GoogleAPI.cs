@@ -21,8 +21,6 @@ namespace SEH_Code_Sample
             // Google custom search API key
             string apiKey = "AIzaSyBNTVBbjGHJUVkNz9MIT7qa739aibJ0As8";
 
-            List<Items> items = new List<Items>();
-
             // %20 is a space in the api call
             // Insert %20 in between all words in the query
             string apiQuery = String.Join("%20", query.ToArray());
@@ -37,7 +35,7 @@ namespace SEH_Code_Sample
             googleUrl += "&imgSize=MEDIUM";
 
             try
-            {               
+            {
                 // Make web request 
                 var request = WebRequest.Create(googleUrl);
                 HttpWebResponse response = (HttpWebResponse)request.GetResponse();
@@ -46,24 +44,36 @@ namespace SEH_Code_Sample
                 string responseString = reader.ReadToEnd();
                 dynamic jsonData = JsonConvert.DeserializeObject(responseString);
 
-                // Decipher json data
-                foreach (var item in jsonData.items)
-                {
-                    Items temp = new Items();
-                    temp.title = item["title"];
-                    temp.link = item["link"];
-                    temp.snippet = item["snippet"];
-                    temp.thumbnailLink = item["image"]["thumbnailLink"];
-                    temp.thumbnailHeight = item["image"]["thumbnailHeight"];
-                    temp.thumbnailWidth = item["image"]["thumbnailWidth"];
-
-                    items.Add(temp);
-                }
+                return jsonToItems(jsonData);
             }
             catch (Exception exception)
             {
                 return null;
             }
+        }
+
+        public static List<Items> jsonToItems(dynamic jsonData)
+        {
+            List<Items> items = new List<Items>();
+
+            // Check if there are any Items 
+            if (jsonData.searchInformation.totalResults != "0")
+            {
+                // Decompose json data
+                foreach (var item in jsonData.items)
+                {
+                    items.Add(new Items
+                    {
+                        title = item.title,
+                        link = item.link,
+                        snippet = item.snippet,
+                        thumbnailLink = item.image.thumbnailLink,
+                        thumbnailHeight = item.image.thumbnailHeight,
+                        thumbnailWidth = item.image.thumbnailWidth
+                    });
+                }
+            }
+
             return items;
         }
     }

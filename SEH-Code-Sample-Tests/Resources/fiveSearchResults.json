@@ -1,0 +1,150 @@
+﻿{
+    "kind": "customsearch#search",
+    "url": {
+        "type": "application/json",
+        "template": "https://www.googleapis.com/customsearch/v1?q={searchTerms}&num={count?}&start={startIndex?}&lr={language?}&safe={safe?}&cx={cx?}&sort={sort?}&filter={filter?}&gl={gl?}&cr={cr?}&googlehost={googleHost?}&c2coff={disableCnTwTranslation?}&hq={hq?}&hl={hl?}&siteSearch={siteSearch?}&siteSearchFilter={siteSearchFilter?}&exactTerms={exactTerms?}&excludeTerms={excludeTerms?}&linkSite={linkSite?}&orTerms={orTerms?}&relatedSite={relatedSite?}&dateRestrict={dateRestrict?}&lowRange={lowRange?}&highRange={highRange?}&searchType={searchType}&fileType={fileType?}&rights={rights?}&imgSize={imgSize?}&imgType={imgType?}&imgColorType={imgColorType?}&imgDominantColor={imgDominantColor?}&alt=json"
+    },
+    "queries": {
+        "request": [
+            {
+                "title": "Google Custom Search - google",
+                "totalResults": "1290000000",
+                "searchTerms": "google",
+                "count": 5,
+                "startIndex": 1,
+                "inputEncoding": "utf8",
+                "outputEncoding": "utf8",
+                "safe": "off",
+                "cx": "bf4611498357bc8c9",
+                "searchType": "image",
+                "imgSize": "medium"
+            }
+        ],
+        "nextPage": [
+            {
+                "title": "Google Custom Search - google",
+                "totalResults": "1290000000",
+                "searchTerms": "google",
+                "count": 5,
+                "startIndex": 6,
+                "inputEncoding": "utf8",
+                "outputEncoding": "utf8",
+                "safe": "off",
+                "cx": "bf4611498357bc8c9",
+                "searchType": "image",
+                "imgSize": "medium"
+            }
+        ]
+    },
+    "context": {
+        "title": "Google"
+    },
+    "searchInformation": {
+        "searchTime": 0.324804,
+        "formattedSearchTime": "0.32",
+        "totalResults": "1290000000",
+        "formattedTotalResults": "1,290,000,000"
+    },
+    "items": [
+        {
+            "kind": "customsearch#result",
+            "title": "Google Slides: Free Online Presentations for Personal Use",
+            "htmlTitle": "<b>Google</b> Slides: Free Online Presentations for Personal Use",
+            "link": "https://blogs.shu.ac.uk/shutel/files/2014/08/GSlides.png",
+            "displayLink": "www.google.com",
+            "snippet": "Google Slides: Free Online Presentations for Personal Use",
+            "htmlSnippet": "<b>Google</b> Slides: Free Online Presentations for Personal Use",
+            "mime": "image/png",
+            "fileFormat": "image/png",
+            "image": {
+                "contextLink": "https://www.google.com/slides/about/",
+                "height": 300,
+                "width": 300,
+                "byteSize": 6185,
+                "thumbnailLink": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTJD2kAqjGymXR2mNOk4StjJQavh1nwHdkRrFCOuLYrhgkJVz-8JRhbcA&s",
+                "thumbnailHeight": 116,
+                "thumbnailWidth": 116
+            }
+        },
+        {
+            "kind": "customsearch#result",
+            "title": "Google",
+            "htmlTitle": "<b>Google</b>",
+            "link": "https://www.google.com/images/branding/googlelogo/2x/googlelogo_color_160x56dp.png",
+            "displayLink": "www.google.com",
+            "snippet": "googlelogo_color_160x56dp.png",
+            "htmlSnippet": "googlelogo_color_160x56dp.png",
+            "mime": "image/png",
+            "fileFormat": "image/png",
+            "image": {
+                "contextLink": "http://www.google.com/",
+                "height": 112,
+                "width": 320,
+                "byteSize": 7048,
+                "thumbnailLink": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQu7ggDqQyXuxqO0_rzP-_dRCIY-Ul34jHadQSgkoV-z2gcxrj5rYO0Wg&s",
+                "thumbnailHeight": 41,
+                "thumbnailWidth": 118
+            }
+        },
+        {
+            "kind": "customsearch#result",
+            "title": "Google Input Tools",
+            "htmlTitle": "<b>Google</b> Input Tools",
+            "link": "https://www.google.com/inputtools/images/hero-video.jpg",
+            "displayLink": "www.google.com",
+            "snippet": "Google Input Tools",
+            "htmlSnippet": "<b>Google</b> Input Tools",
+            "mime": "image/jpeg",
+            "fileFormat": "image/jpeg",
+            "image": {
+                "contextLink": "https://www.google.com/inputtools",
+                "height": 227,
+                "width": 371,
+                "byteSize": 7922,
+                "thumbnailLink": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSt9y6Ig6Uxvz5Y_zTtBIkVNnvihzlrABhf-GQiwBsfHbSkQKpgHhN3&s",
+                "thumbnailHeight": 75,
+                "thumbnailWidth": 122
+            }
+        },
+        {
+            "kind": "customsearch#result",
+            "title": "30th Anniversary of PAC-MAN",
+            "htmlTitle": "30th Anniversary of PAC-MAN",
+            "link": "https://www.google.com/logos/2002/dilberttwo.gif",
+            "displayLink": "www.google.com",
+            "snippet": "30th Anniversary of PAC-MAN",
+            "htmlSnippet": "30th Anniversary of PAC-MAN",
+            "mime": "image/gif",
+            "fileFormat": "image/gif",
+            "image": {
+                "contextLink": "https://www.google.com/doodles/30th-anniversary-of-pac-man",
+                "height": 130,
+                "width": 550,
+                "byteSize": 15184,
+                "thumbnailLink": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSnhk3QXrOnD9DHoRYrgiKbK1zOZxfA3UgG-e1EAge5cGPsXH4kxAqCDVc&s",
+                "thumbnailHeight": 31,
+                "thumbnailWidth": 133
+            }
+        },
+        {
+            "kind": "customsearch#result",
+            "title": "Google Slides: Free Online Presentations for Personal Use",
+            "htmlTitle": "<b>Google</b> Slides: Free Online Presentations for Personal Use",
+            "link": "https://lh3.ggpht.com/9rwhkrvgiLhXVBeKtScn1jlenYk-4k3Wyqt1PsbUr9jhGew0Gt1w9xbwO4oePPd5yOM=w300",
+            "displayLink": "www.google.com",
+            "snippet": "Google Slides: Free Online Presentations for Personal Use",
+            "htmlSnippet": "<b>Google</b> Slides: Free Online Presentations for Personal Use",
+            "mime": "image/",
+            "fileFormat": "image/",
+            "image": {
+                "contextLink": "https://www.google.com/slides/about/",
+                "height": 300,
+                "width": 300,
+                "byteSize": 9067,
+                "thumbnailLink": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRf6eeLn_JMfOKbyBwUtVCJLBqnL08o7jw-nx4ocjUmeZOwqa0N5q9WlA&s",
+                "thumbnailHeight": 116,
+                "thumbnailWidth": 116
+            }
+        }
+    ]
+}
