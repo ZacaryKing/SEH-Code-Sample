@@ -31,7 +31,7 @@ namespace SEH_Code_Sample
             googleUrl += "&cx=" + cx;
             googleUrl += "&q=" + apiQuery;
             googleUrl += "&searchType=image";
-            googleUrl += "&num=10";
+            googleUrl += "&num=9";     // Max number that can be searched is 10
             googleUrl += "&imgSize=MEDIUM";
 
             try

@@ -6,17 +6,17 @@
         xmlns:local="clr-namespace:SEH_Code_Sample"
         mc:Ignorable="d"
         Title="SEH-Code-Sample" 
-        Height="900" Width="1200" 
+        Height="800" Width="1000" 
         ResizeMode="NoResize" 
         Topmost="False" 
         WindowState="Normal"
         WindowStartupLocation="Manual" Left="15" Top="15">
     <Grid>
         <TextBox x:Name="titleTextArea" HorizontalAlignment="Left" Height="23"  VerticalAlignment="Top" Width="200" Margin="65,15,0,0"/>
-        <RichTextBox x:Name="bodyTextArea" HorizontalAlignment="Left" Height="125" VerticalAlignment="Top" Width="900" Margin="65,50,0,0"/>
+        <RichTextBox x:Name="bodyTextArea" HorizontalAlignment="Left" Height="125" VerticalAlignment="Top" Margin="65,50,25,0"/>
         <Label x:Name="titleLabel" Content="Title:" HorizontalAlignment="Left" Height="25" Width="40" Margin="25,15,0,0" VerticalAlignment="Top"/>
         <Label x:Name="bodyLabel" Content="Body:" HorizontalAlignment="Left" Height="25" Width="40" Margin="25,50,0,0" VerticalAlignment="Top"/>
-        <Label x:Name="boldLabel" Content="Press Ctrl+b in the Body to Bold" HorizontalAlignment="Left" Height="25" Width="180" Margin="785,15,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="boldLabel" Content="Press Ctrl+b in the Body to Bold" HorizontalAlignment="right" Height="25" Width="180" Margin="0,15,110,0" VerticalAlignment="Top"/>
         <Button x:Name="helpButton" Content="Help" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="110,0,0,15" Width="75" Height="25" Click="helpButton_Click"/>
         <Button x:Name="pullImagesButton" Content="Pull Images" ToolTip="Queries words from Title and Body for image search" HorizontalAlignment="right" VerticalAlignment="Bottom" Margin="0,0,135,15" Width="100" Height="25" Click="pullImagesButton_Click"/>
         <Button x:Name="clearButton" Content="Clear" ToolTip="Clears all contents in Title, Body, and Image Grid" HorizontalAlignment="right" VerticalAlignment="Top" Margin="0,15,25,0" Width="75" Height="25" Click="clearButton_Click"/>
@@ -27,12 +27,8 @@
                 <ColumnDefinition/>
                 <ColumnDefinition/>
                 <ColumnDefinition/>
-                <ColumnDefinition/>
-                <ColumnDefinition/>
             </Grid.ColumnDefinitions>
             <Grid.RowDefinitions>
-                <RowDefinition/>
-                <RowDefinition/>
                 <RowDefinition/>
                 <RowDefinition/>
                 <RowDefinition/>

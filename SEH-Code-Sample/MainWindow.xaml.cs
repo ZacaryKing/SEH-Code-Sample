@@ -264,8 +264,8 @@ namespace SEH_Code_Sample
             button.Background = brush;
 
             // Size of Grid Cell
-            button.Height = 128;
-            button.Width = 230;
+            button.Height = imageGrid.ActualHeight / imageGrid.RowDefinitions.Count;
+            button.Width = imageGrid.ActualWidth / imageGrid.ColumnDefinitions.Count;
 
             // Set Click Event
             button.Click += new RoutedEventHandler(button_Click);
