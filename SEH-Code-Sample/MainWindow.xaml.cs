@@ -11,14 +11,10 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
-using System.Windows.Shapes;
-using Microsoft.Office.Interop.PowerPoint;
 using System.IO;
-
 
 namespace SEH_Code_Sample
 {
-
 
     /// <summary>
     /// Interaction logic for MainWindow.xaml
@@ -73,7 +69,10 @@ namespace SEH_Code_Sample
 
         private void generateSlideButton_Click(object sender, RoutedEventArgs e)
         {
-            generatePowerPointSlide();
+            string status = PPModifications.generatePowerPointSlide(titleTextArea.Text, stringFromRichTextBox(bodyTextArea), imagesToPPT);
+
+            if (status != "Success")
+                MessageBox.Show(status);
         }
 
 
@@ -112,7 +111,8 @@ namespace SEH_Code_Sample
             helpInfo += "This Project allows you to enter a title and body. Words from the title and bolded words inside the body will be put inside a query ";
             helpInfo += "once pressing the \"Pull Images\" button. The queried words will then be inserted in a Google custom search API call and populate ";
             helpInfo += "the grid below the body with relevant images. You may then press the \"Generate Slide\" button to insert the Title, Body, and selected ";
-            helpInfo += "images to a PowerPoint slide to a PowerPoint presentation called \"Sample.pptx\" in the directory the program is running.";
+            helpInfo += "images to a new PowerPoint slide which will be appended to a PowerPoint called \"Sample.pptx\". \"Sample.pptx\" is located in the ";
+            helpInfo += "directory the program is running.";
 
             MessageBox.Show(helpInfo, "Usage:");
         }
@@ -275,75 +275,6 @@ namespace SEH_Code_Sample
 
             // Set Click Event
             button.Click += new RoutedEventHandler(button_Click);
-        }
-
-        /// <summary>
-        /// Generates PowerPoint Slide with given Title, Body and selected images
-        /// </summary>
-        private void generatePowerPointSlide()
-        {
-            Microsoft.Office.Interop.PowerPoint.Application pptApplication = new Microsoft.Office.Interop.PowerPoint.Application();
-            Microsoft.Office.Interop.PowerPoint.Presentation pptPresentation = pptApplication.Presentations.Add(Microsoft.Office.Core.MsoTriState.msoTrue);
-
-            Microsoft.Office.Interop.PowerPoint.CustomLayout customLayout =
-                pptPresentation.SlideMaster.CustomLayouts[Microsoft.Office.Interop.PowerPoint.PpSlideLayout.ppLayoutText];
-
-            // Create new Slide
-            Microsoft.Office.Interop.PowerPoint.Slides slides = pptPresentation.Slides;
-
-            // Append new slide to end of presentation
-            Microsoft.Office.Interop.PowerPoint._Slide slide = slides.AddSlide(1, customLayout);
-            
-            Microsoft.Office.Interop.PowerPoint.TextRange objText;
-
-            // Add title from titleTextArea
-            objText = slide.Shapes[1].TextFrame.TextRange;
-            objText.Text = titleTextArea.Text;
-            objText.Font.Name = "Arial";
-            objText.Font.Size = 32;
-
-            // Add body from bodyTextArea
-            objText = slide.Shapes[2].TextFrame.TextRange;
-            objText.Text = stringFromRichTextBox(bodyTextArea);
-            objText.Font.Name = "Arial";
-            objText.Font.Size = 20;
-        
-            Microsoft.Office.Interop.PowerPoint.Shapes shapes = slide.Shapes;
-            string imagePath = System.IO.Path.Combine(Environment.CurrentDirectory, "image.jpg");
-            int imageX = 50;
-
-            // Go through all images, if image was highlighted in grid, post it inside PPT
-            foreach (ImageToUse imageToUse in imagesToPPT)
-            {
-                if (imageToUse.use)
-                {
-                    // Save all images being used
-                    var encoder = new PngBitmapEncoder();
-                    encoder.Frames.Add(BitmapFrame.Create((BitmapSource)imageToUse.bitmapImage));
-                    using (FileStream stream = new FileStream(imagePath, FileMode.Create)) encoder.Save(stream);
-
-                    // Insert all images into PPT
-                    shapes.AddPicture(imagePath, Microsoft.Office.Core.MsoTriState.msoFalse, Microsoft.Office.Core.MsoTriState.msoTrue, imageX, 350, 100, 100);
-                    imageX += 100;
-
-                    // Delete all images when done with them
-                    File.Delete(imagePath);
-                }
-            }
-
-            try
-            {
-                // Save Power Point
-                string powerPointPath = System.IO.Path.Combine(Environment.CurrentDirectory, "ppSample.pptx");
-                pptPresentation.SaveAs(powerPointPath, Microsoft.Office.Interop.PowerPoint.PpSaveAsFileType.ppSaveAsDefault, Microsoft.Office.Core.MsoTriState.msoTrue);
-            }
-            catch (Exception exception)
-            {
-                MessageBox.Show("Problem while trying to save PowerPoint:\n" + exception.ToString(), "Error:");
-            }
-
-            // pptPresentation.Close();
-            // pptApplication.Quit();
         }
 
         #endregion
