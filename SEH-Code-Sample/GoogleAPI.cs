@@ -11,28 +11,16 @@ namespace SEH_Code_Sample
     public static class GoogleAPI
     {
         /// <summary>
-        /// Interaction logic for MainWindow.xaml
+        /// Makes web request to Google API using query words given
         /// </summary>
         public static List<Items> SearchGoogleImages(List<string> query)
         {
-            // Search Engine ID
-            string cx = "bf4611498357bc8c9";
+            // Open up config to get google API parameters
+            StreamReader reader = new StreamReader(Path.Combine(Environment.CurrentDirectory, "Resources", "config.json"));
+            dynamic jsonData = JsonConvert.DeserializeObject(reader.ReadToEnd());
+            reader.Close();
 
-            // Google custom search API key
-            string apiKey = "AIzaSyBNTVBbjGHJUVkNz9MIT7qa739aibJ0As8";
-
-            // %20 is a space in the api call
-            // Insert %20 in between all words in the query
-            string apiQuery = String.Join("%20", query.ToArray());
-
-            // Create Google API call
-            string googleUrl = "https://customsearch.googleapis.com/customsearch/v1?key=";
-            googleUrl += apiKey;
-            googleUrl += "&cx=" + cx;
-            googleUrl += "&q=" + apiQuery;
-            googleUrl += "&searchType=image";
-            googleUrl += "&num=9";     // Max number that can be searched is 10
-            googleUrl += "&imgSize=MEDIUM";
+            string googleUrl = jsonToGoogleUrl(jsonData, query);
 
             try
             {
@@ -40,9 +28,10 @@ namespace SEH_Code_Sample
                 var request = WebRequest.Create(googleUrl);
                 HttpWebResponse response = (HttpWebResponse)request.GetResponse();
                 Stream dataStream = response.GetResponseStream();
-                StreamReader reader = new StreamReader(dataStream);
+                reader = new StreamReader(dataStream);
                 string responseString = reader.ReadToEnd();
-                dynamic jsonData = JsonConvert.DeserializeObject(responseString);
+                jsonData = JsonConvert.DeserializeObject(responseString);
+                reader.Close();
 
                 return jsonToItems(jsonData);
             }
@@ -52,6 +41,28 @@ namespace SEH_Code_Sample
             }
         }
 
+        /// <summary>
+        /// Grabs Google API parameters from config.json file and creates Google API Url
+        /// </summary>
+        public static string jsonToGoogleUrl(dynamic jsonData, List<string> query)
+        {
+            // Insert %20 (space) in between all words in the query
+            string apiQuery = String.Join("%20", query.ToArray());
+            string googleUrl = "https://customsearch.googleapis.com/customsearch/v1?key=";
+            
+            googleUrl += jsonData.apiKey;
+            googleUrl += "&cx=" + jsonData.searchEngineID;
+            googleUrl += "&q=" + apiQuery;
+            googleUrl += "&searchType=" + jsonData.searchType;
+            googleUrl += "&num=" + jsonData.num;     // Max number that can be searched is 10
+            googleUrl += "&imgSize=" + jsonData.imgSize;
+
+            return googleUrl;
+        }
+
+        /// <summary>
+        /// Converts results from Google API call to a list of Items
+        /// </summary>
         public static List<Items> jsonToItems(dynamic jsonData)
         {
             List<Items> items = new List<Items>();

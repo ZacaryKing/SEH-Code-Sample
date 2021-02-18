@@ -10,4 +10,8 @@ This Project allows you to enter a title and body. Words from the title and bold
 
 #### Notes:
 
-I left the Google search engine ID and Google API Key in the project. These along with the other Google API parameters can be altered in the SearchGoogleImages method inside the GoogleAPI class.
+- The home directory includes a config.json file:
+	- This includes all parameters used in the Google API call.
+	- Be warry of changing the values in the config file. There's not significant error checking.
+
+- I left the Google search engine ID and Google API Key in the config file for convenience. Normally I wouldn't do this.
