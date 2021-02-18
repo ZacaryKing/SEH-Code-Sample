@@ -20,15 +20,29 @@ namespace SEH_Code_Sample_Tests
         {
             resourcesPath = Path.Combine(Environment.CurrentDirectory, "..", "..", "Resources");
         }
-        
-        // UnitOfWork_StateUnderTest_ExpectedBehavior
-        // Arrange, Act, Assert
+
+        [TestMethod]
+        public void jsonToGoogleUrl_FilledJson_GoogleUrl()
+        {
+            // Arrange
+            StreamReader reader = new StreamReader(Path.Combine(resourcesPath, "configTest.json"));
+            dynamic jsonData = JsonConvert.DeserializeObject(reader.ReadToEnd());
+            List<string> query = new List<string>(new string[] { "Legislative", "Executive", "Judicial" });
+            
+            // Act
+            string googleUrl = GoogleAPI.jsonToGoogleUrl(jsonData, query);
+
+            // Assert
+            Assert.AreEqual(
+                "https://customsearch.googleapis.com/customsearch/v1?key=ABCDEFGHIJKLMNOPQRSTUVWXYZ&cx=0123456789&q=Legislative%20Executive%20Judicial&searchType=image&num=5&imgSize=xxlarge"
+                , googleUrl);
+        }
+
         [TestMethod]
         public void JsonToItems_JsonWith1Item_Item()
         {
             // Arrange
             StreamReader reader = new StreamReader(Path.Combine(resourcesPath, "oneSearchResult.json"));
-            
             dynamic jsonData = JsonConvert.DeserializeObject(reader.ReadToEnd());
 
             // Act
