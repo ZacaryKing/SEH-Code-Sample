@@ -209,12 +209,18 @@ namespace SEH_Code_Sample
             else if (!items.Any())
                 return "No search results returned.";
 
+            // Max number of buttons to make
+            int max;
+            if (items.Count < 9)
+                max = items.Count;
+            else
+                max = 9;
 
             // Traverse through each row
-            for (int rowIndex = 0, i = 0; (rowIndex < imageGrid.RowDefinitions.Count) && (i < items.Count); rowIndex++)
+            for (int rowIndex = 0, i = 0; (rowIndex < imageGrid.RowDefinitions.Count) && (i < max); rowIndex++)
             {
                 // Traverse through each column
-                for (int columnIndex = 0; (columnIndex < imageGrid.ColumnDefinitions.Count) && (i < items.Count); columnIndex++, i++)
+                for (int columnIndex = 0; (columnIndex < imageGrid.ColumnDefinitions.Count) && (i < max); columnIndex++, i++)
                 {
                     // Store images
                     imagesToPPT.Add(new ImageToUse {
